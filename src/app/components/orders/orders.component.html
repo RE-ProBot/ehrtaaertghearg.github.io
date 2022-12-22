@@ -1,0 +1,57 @@
+<div class="main-customers">
+    <div class="top-bar primary">
+        <h3>Orders</h3>
+        
+    </div>
+
+    <!-- search are -->
+    <div *ngIf="showInput==true" class="search-space">
+        <div class="search-space-top">
+            <input type="text" *ngIf="showInput==true" class="search-input">
+            <button *ngIf="showInput==true" class="delete" style="border-radius: 0.25rem;"
+                (click)="showInput=false"></button>
+        </div>
+        <div class="mock-line"></div>
+    </div>
+    <!-- --- -->
+    <div class="orders">
+        <h3 style="font-weight: bold;margin-top: 1rem;margin-left: 50%; size: 50px;">Today's orders</h3>
+        <h1 style="font-weight: bold;margin-left: 65%; ">{{orders.length}} total Orders</h1>
+       
+        <!-- <h1 style="font-weight: bold;margin-right:1rem;margin-bottom:1rem;text-align:right;">{{orders.length}} total Orders</h1> -->
+        <ul>
+            <div class="top-table">
+                <p class="order-individual">Id</p>
+                <p class="order-individual">To name</p>
+                <p class="order-individual">To phone number</p>
+                <p class="order-individual">To Address</p>
+                <p class="order-individual">Order status</p>
+                <p class="order-individual">Total Price $</p>
+
+            </div>
+            <li *ngFor="let order of orders">
+                <p class="order-individual">{{order.orderid}}</p>
+                <p class="order-individual">{{order.username}}</p>
+                <p class="order-individual">{{order.phonenumber}}</p>
+                <p class="order-individual">{{order.adress}}</p>
+                <p *ngIf="order.orderstatus=='pending'" class="order-individual" 
+                    [ngStyle]="{'color':'orange'}">
+                    {{order.orderstatus}}</p>
+                <p *ngIf="order.orderstatus=='canceled'"  class="order-individual" style="color: tomato;">
+                    {{order.orderstatus}}</p>
+                    <p *ngIf="order.orderstatus=='started'"  class="order-individual" style="color: rgb(68, 172, 70);">
+                        {{order.orderstatus}}</p>
+                <p class="order-individual">{{order.totlaprice}}</p>
+              
+
+            </li>
+            <div *ngIf="orders.length==0" style="height: 5rem;display: flex;flex-direction:row;align-items:center;justify-content:center;">
+                <p style="text-align: center;">You have no order yet!</p>
+            </div>
+        </ul>
+        <!-- // -->
+        
+      
+     
+    </div>
+</div>

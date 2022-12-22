@@ -1,0 +1,27 @@
+<div class="prviewContainer">
+    <div
+     *ngFor="let image of item.url"
+     class="prviewImage"
+    [ngStyle]="{'background-image':'url('+image+')'}"></div>
+</div>
+<div>
+    <p style="font-size: 20px;"><strong>Item Price $</strong></p>
+    <input #itemPrice type="text" [ngModel]="item.price" (keyUp.enter)="editPrice(itemPrice.value)">
+</div>
+<div>
+    <p style="font-size: 20px;"><strong>Item Quantity</strong></p>
+    <input #itemQuantity type="text" [ngModel]="item.quantity" (keyUp.enter)="editQuantity(itemQuantity.value)">
+</div>
+<div>
+    <p style="font-size: 20px;"><strong>Item Category</strong></p>
+    <input #itemCategory type="text" [ngModel]="item.category" (keyUp.enter)="editCategory(itemCategory.value)" style="width: 10rem;">
+</div>
+<div>
+    <p style="font-size: 20px;"><strong>Car Brand</strong></p>
+    <input #carBrand type="text" [ngModel]="item.brand" (keyUp.enter)="editCarBrand(carBrand.value)" style="width: 10rem;">
+</div>
+
+<div>
+    <p style="font-size: 20px;"><strong>Item Description</strong></p>
+    <textarea #itemDescription type="text" [ngModel]="item.description" (keyUp.enter)="editDescription(itemDescription.value)" style="width: 100%;"></textarea>
+</div>
